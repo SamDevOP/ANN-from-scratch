@@ -68,14 +68,15 @@ def train_model(inputs,outputs):
     input_features = inputs.shape[0]
     output_features = outputs.shape[0] 
     param = init_param(input_features, number_of_hidden_layers, output_features)
-    epochs = 100000
-    learn_rate = 0.01
-    losses = np.zeros((epochs, 1))
+    
+    # epochs = 100000
+    # learn_rate = 0.01
+    # losses = np.zeros((epochs, 1))
 
-    for i in range(epochs):
-        losses[i, 0], ca, input_a_ = forward_prop(inputs, outputs, param)
-        grad = back_prop(inputs, outputs, ca)
-        param = updating_param(param, grad, learn_rate)
+    # for i in range(epochs):
+    #     losses[i, 0], ca, input_a_ = forward_prop(inputs, outputs, param)
+    #     grad = back_prop(inputs, outputs, ca)
+    #     param = updating_param(param, grad, learn_rate)
     
     return param
     
@@ -97,8 +98,11 @@ if __name__=="__main__":
 
     #training the model
     param_=train_model(inputs,outputs)
+
+    for i in param_:
+        print(i,"\n",param_[i])
         
     #testing our model
-    pred=testing_model(inputs,param_)
+    # pred=testing_model(inputs,param_)
 
-    print("The predicted values are: ",pred)
+    # print("The predicted values are: ",pred)
